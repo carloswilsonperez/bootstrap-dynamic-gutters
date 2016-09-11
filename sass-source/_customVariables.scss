@@ -1,0 +1,237 @@
+// VARIABLES section
+
+// XTRA SMALL View Port measeures
+$vieport-xs: 320px;
+$h-xs: 10px;
+$delta-xs: 20px;
+$w-xs: 5px;
+$L-xs: ceil($h-xs + $w-xs + $h-xs);
+
+// SMALL View Port measeures
+$vieport-sm: 768px;
+$h-sm: 15px;
+$delta-sm: 35px;
+$w-sm: 30px;
+$L-sm: ceil($h-sm + $w-sm + $h-sm);
+
+// MEDIUM View Port measeures
+$vieport-md: 996px;
+$h-md: 15px;
+$delta-md: 45px;
+$w-md: 47.666px;
+$L-md: ceil($h-md + $w-md + $h-md);
+
+// LARGE View Port measeures
+$vieport-lg: 1200px;
+$h-lg: 25px;
+$delta-lg: 45px;
+$w-lg: 46.666px;
+$L-lg: ceil($h-lg + $w-lg + $h-lg);
+
+//Available sizes
+$sizes: xs sm md lg;
+
+
+
+// MIXINS section
+
+@mixin make-special-grid-columns($i, $size, $viewport, $L, $h) {
+  @if ($size == "xs" and $viewport == "xs") or
+      ($size == "xs" and $viewport == "sm") or
+      ($size == "sm" and $viewport == "sm") or
+      ($size == "xs" and $viewport == "md") or
+      ($size == "sm" and $viewport == "md") or
+      ($size == "md" and $viewport == "md") or
+      ($viewport == "lg")
+  {
+    //Widths for grid columns within .row
+    .col-#{$size}-#{$i} {
+      @if $i == 12 {
+        width: 100%;
+      } @else {
+        width: $L*$i;
+      }
+    }
+
+    //Widths for columns that are a first or last child within .row
+    .col-#{$size}-#{$i}:first-child {
+      @if $i == 12 {
+        width: 100%;
+      } @else {
+        width: $L*$i - $h;
+      }
+    }
+
+    .col-#{$size}-#{$i}:last-child {
+      @if $i == 12 {
+        width: 100%;
+      } @else {
+        width: $L*$i - $h;
+      }
+    }
+
+  }
+  @else {
+    //Widths for grid columns within .row to 100%
+    .col-#{$size}-#{$i} {
+      width: 100%;
+    }
+
+    //Widths for columns that are a first or last child within .row to 100%
+    .col-#{$size}-#{$i}:first-child {
+      width: 100%;
+    }
+
+    .col-#{$size}-#{$i}:last-child {
+      width: 100%;
+    }
+  }
+}
+
+
+// CONTAINER 6 ROW section
+
+@media (max-width: 320px) {
+  .container {
+    width: 320px;
+  }
+}
+
+.container .row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+
+@media (max-width: 320px) {
+  .container {
+    width: 320px;
+  }
+}
+
+.container .row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+
+%right-padding {
+  padding-right: 0;
+}
+%left-padding {
+  padding-left: 0;
+}
+
+// Paddings for first and last Childs
+@each $size in $sizes {
+  @for $i from 1 through 12 {
+    .col-#{$size}-#{$i}:first-child {
+      padding-left: 0;
+    }
+    .col-#{$size}-#{$i}:last-child {
+      padding-right: 0;
+    }
+  }
+}
+
+// Media Queries section
+
+@media (min-width: 320px) {
+
+  .container {
+    padding-left: $delta-xs;
+    padding-right: $delta-xs;
+    width: 12*$L-xs + 2*$delta-xs - 2*$h-xs;
+  }
+
+  // Paddings for grid columns
+  @each $size in $sizes {
+    @for $i from 1 through 12 {
+      .col-#{$size}-#{$i} {
+        padding-left: $h-xs;
+        padding-right: $h-xs;
+      }
+    }
+  }
+
+  @for $i from 1 through 12 {
+    @each $size in $sizes {
+      @include make-special-grid-columns($i, $size, "xs", $L-xs, $h-xs);
+    }
+  }
+}
+
+@media (min-width: 768px) {
+
+  .container {
+    padding-left: $delta-sm;
+    padding-right: $delta-sm;
+    width: 12*$L-sm + 2*$delta-sm - 2*$h-sm;
+  }
+
+  // Paddings for grid columns
+  @each $size in $sizes {
+    @for $i from 1 through 12 {
+      .col-#{$size}-#{$i} {
+        padding-left: $h-sm;
+        padding-right: $h-sm;
+      }
+    }
+  }
+
+  @for $i from 1 through 12 {
+    @each $size in $sizes {
+      @include make-special-grid-columns($i, $size, "sm", $L-sm, $h-sm);
+    }
+  }
+}
+
+@media (min-width: 992px) {
+
+  .container {
+    padding-left: $delta-md;
+    padding-right: $delta-md;
+    width: 12*$L-md + 2*$delta-md - 2*$h-md;
+  }
+
+  // Paddings for grid columns
+  @each $size in $sizes {
+    @for $i from 1 through 12 {
+      .col-#{$size}-#{$i} {
+        padding-left: $h-md;
+        padding-right: $h-md;
+      }
+    }
+  }
+
+  @for $i from 1 through 12 {
+    @each $size in $sizes {
+      @include make-special-grid-columns($i, $size, "md", $L-md, $h-md);
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+
+  .container {
+    padding-left: $delta-lg;
+    padding-right: $delta-lg;
+    width: 12*$L-lg + 2*$delta-lg - 2*$h-lg;
+  }
+
+  // Paddings for grid columns
+  @each $size in $sizes {
+    @for $i from 1 through 12 {
+      .col-#{$size}-#{$i} {
+        padding-left: $h-lg;
+        padding-right: $h-lg;
+      }
+    }
+  }
+
+  @for $i from 1 through 12 {
+    @each $size in $sizes {
+      @include make-special-grid-columns($i, $size, "lg", $L-lg, $h-lg);
+    }
+  }
+}

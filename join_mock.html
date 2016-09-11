@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="stylesssss/comp-sizes.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        div.container {
+            background-color: lightgray;
+        }
+
+        label {
+           margin-top: 20px;
+        }
+
+        /*   ---------------- */
+        /* CSS used here will be applied after bootstrap.css */	/* custom checkboxes */
+        .custom-checkbox > [type="checkbox"],
+        .custom-checkbox > label{
+            margin-bottom:0px !important;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        .custom-checkbox > [type="checkbox"]:not(:checked),
+        .custom-checkbox > [type="checkbox"]:checked {
+            position: absolute;
+            left: -9999px;
+        }
+        .custom-checkbox > [type="checkbox"]:not(:checked) + label,
+        .custom-checkbox > [type="checkbox"]:checked + label {
+            position: relative;
+            padding-left: 22px;
+            cursor: pointer;
+        }
+        .custom-checkbox > [type="checkbox"]:not(:checked) + label:before,
+        .custom-checkbox > [type="checkbox"]:checked + label:before {
+            content: '';
+            position: absolute;
+            left:0; 
+            top: 50%;
+            margin-top:-9px;
+            width: 17px; 
+            height: 17px;
+            border: 1px solid #ddd;
+            background: #D46731;;
+            border-radius: 2px;
+        }
+        .custom-checkbox > [type="checkbox"]:not(:checked) + label:after,
+        .custom-checkbox > [type="checkbox"]:checked + label:after {
+            font: normal normal normal 12px/1 'Glyphicons Halflings';
+            content: '\e013';
+            position: absolute;
+            top: 50%;
+            margin-top:-7px;
+            left: 2px;
+            color: #ffffff;
+            xtransition: all .2s;
+        }
+        
+        .custom-checkbox > [type="checkbox"]:not(:checked) + label:after {
+            opacity: 0;
+            transform: scale(0);
+        }
+        .custom-checkbox > [type="checkbox"]:checked + label:after {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        .custom-checkbox > [type="checkbox"][data-indeterminate] + label:after,
+        .custom-checkbox > [type="checkbox"][data-indeterminate] + label:after {
+            content: '\2212';
+            left: 2px;
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        .custom-checkbox > [type="checkbox"]:disabled:not(:checked) + label:before,
+        .custom-checkbox > [type="checkbox"]:disabled:checked + label:before {
+            box-shadow: none;
+            background-color: #eeeeee;
+            border-color: #eeeeee;
+            cursor: not-allowed;
+            opacity: 1;
+            color: #dadada;
+        }
+        .custom-checkbox > [type="checkbox"]:disabled:checked + label:after {
+        color: #dadada; cursor: not-allowed;
+        }
+        .custom-checkbox > [type="checkbox"]:disabled + label {
+        color: #aaa; cursor: not-allowed;
+        }
+        .custom-checkbox > [type="checkbox"]:checked:focus + label:before,
+        .custom-checkbox > [type="checkbox"]:not(:checked):focus + label:before {
+            border: 1px solid #66afe9;
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+        }
+        .custom-checkbox > label:hover:before {
+            border: 1px solid #88D2FF !important;
+        }
+        .custom-checkbox > [type="checkbox"]:disabled:not(:checked) + label:hover:before,
+        .custom-checkbox > [type="checkbox"]:disabled:checked + label:hover:before{
+            border: 1px solid #E4E4E4 !important;
+        }
+
+        .join {
+                background-color: orange;
+                color: white;
+            }
+	
+
+    </style>
+</head>
+
+<body>
+     
+
+<div class="container">
+
+    <h2>Join IHG&reg; Rewards Club</h2>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ipsum purus, iaculis sed ante faucibus, fringilla mollis lectus. Mauris aliquam ante accumsan, cursus mi vitae, tempor libero. Suspendisse eu finibus magna, sed ultricies augue. Integer fringilla gravida nulla nec placerat. Nunc vitae neque ac nibh laoreet tincidunt sit amet at ipsum. Nulla faucibus eget dolor nec venenatis. Etiam sagittis varius gravida. Curabitur dignissim urna risus, ac elementum nulla mattis eu. Nullam porttitor, eros sed pellentesque porta, ante ex gravida lorem, in dictum ligula justo nec lorem. Nunc ut dui quis ipsum viverra finibus a sit amet sapien. Donec efficitur mi ac egestas scelerisque. Mauris efficitur leo et consequat posuere. Suspendisse varius arcu quis est volutpat, ac varius nisi ultricies.
+    <form>
+        <div class="row visible-lg">
+            <div class="col-lg-6">               
+                    Account Information
+            </div>
+
+            <div class="col-lg-6">                
+                    Mailing Address                
+            </div>
+
+            <!--Content of firs block of inputs -->
+        </div>
+
+        <div class="row visible-lg">
+
+            <div class="col-lg-2" id="title1"><div>
+                <label for="tittle">Tittle</label>&nbsp;<sup>*</sup>
+                <input type="email" class="form-control" id="tittle"></div>
+            </div>           
+
+            <div class="col-lg-2" id="fname"><div>
+                <label for="fname">First Name</label>&nbsp;<sup>*</sup>
+                <input type="text" class="form-control" id="fname"></div>
+            </div>
+
+            <div class="col-lg-2" id="lname"><div>
+                <label for="lname">Last Name</label>&nbsp;<sup>*</sup>
+                <input type="text" class="form-control" id="lname"></div>
+            </div>
+
+            <div class="col-lg-3" id="typeaddress">
+                <label for="residence">Type Address</label>
+                <input type="text" class="form-control" id="residence" name="optradio">
+            </div>
+
+            <div class="col-lg-3">
+                <label for="business">&nbsp;</label>
+                <input type="text" class="form-control" id="business" name="optradio">
+            </div>
+
+        </div>
+
+        <div class="row visible-lg">
+
+            <div class="col-lg-3">
+                <label for="email">Email Address</label>&nbsp;<sup>*</sup>
+                <input type="password" class="form-control">
+            </div>            
+
+            <div class="col-lg-3">
+                <label for="vemail">Verify Email Address</label>&nbsp;<sup>*</sup>
+                <input type="password" class="form-control">
+            </div>
+
+            <div class="col-lg-6">
+                <label for="sa">Street Address</label>
+                <input type="password" class="form-control">
+            </div>
+
+        </div>
+
+        <div class="row visible-lg">
+
+            <div class="col-lg-6">
+                Why whe collect your email Address?
+            </div>
+
+            <div class="col-lg-6">
+                + Additional Addres Information
+            </div>
+
+        </div>
+
+        <div class="row visible-lg">
+
+            <!-- <div class="clearfix visible-xs visible-md visible-lg"></div> -->
+            <div class="col-lg-3">
+                <label for="pin">Create PIN</label>&nbsp;<sup>*</sup>
+                <input type="password" class="form-control">
+            </div>
+
+            <div class="col-lg-3">
+                <label for="vpin">Verify PIN</label>&nbsp;<sup>*</sup>
+                <input type="password" class="form-control">
+                <span>Make note of your PIN for future use.</span>
+            </div>
+
+            <div class="col-lg-3">
+                <label for="country">Country</label>
+                <input type="password" class="form-control">
+            </div>
+
+            <div class="col-lg-3">
+                <label for="state">State / Province</label>
+                <input type="password" class="form-control">
+            </div>
+
+        </div>
+
+        <div class="row visible-lg">
+
+            <div class="col-lg-6">                &nbsp;
+            </div>
+
+            <div class="col-lg-3">
+                <label for="city">City / Town</label>
+                <input type="password" class="form-control">
+            </div>
+
+            <div class="col-lg-3">
+                <label for="zip">Postal Code</label>
+                <input type="password" class="form-control">
+            </div>
+
+        </div>
+
+        <div class="row visible-lg">
+
+            <div class="custom-checkbox col-lg-10">
+                <input type="checkbox" id="cb11">
+                <label for="cb11">Text about termns and conditions</label>
+            </div>
+
+        </div>
+
+        <div class="row visible-lg">
+            
+            <div class="col-lg-4 join">JOIN NOW</div>
+          
+        </div><!-- row -->
+
+        <div class="row visible-md">
+
+            <div class="col-md-12">               
+                    Account Information               
+            </div>
+
+        </div>
+
+        <div class="row visible-md">
+
+            <!--Content of firs block of inputs -->                       
+
+            <div class="col-md-2" id="title"><div>
+                <label for="tittle">Tittle</label>&nbsp;<sup>*</sup>
+                <input type="email" class="form-control" id="tittle"></div>
+            </div>           
+
+            <div class="col-md-5" id="fname"><div>
+                <label for="fname">First Name</label>&nbsp;<sup>*</sup>
+                <input type="text" class="form-control" id="fname"></div>
+            </div>
+
+            <div class="col-md-5" id="lname"><div>
+                <label for="lname">Last Name</label>&nbsp;<sup>*</sup>
+                <input type="text" class="form-control" id="lname"></div>
+            </div>
+
+        </div>
+
+        <div class="row visible-md">
+
+            <div class="col-md-6">
+                <label for="email">Email Address</label>&nbsp;<sup>*</sup>
+                <input type="password" class="form-control">
+            </div>            
+
+            <div class="col-md-6">
+                <label for="vemail">Verify Email Address</label>&nbsp;<sup>*</sup>
+                <input type="password" class="form-control">
+            </div>
+
+        </div>
+
+        <div class="row visible-md">
+
+            <div  class="col-md-5">
+                Why whe collect your email Address?
+            </div>
+
+        </div>
+
+        <div class="row visible-md">
+
+             <div class="col-md-3">
+                <label for="pin">Create PIN</label>&nbsp;<sup>*</sup>
+                <input type="password" class="form-control">
+            </div>
+
+            <div class="col-md-3">
+                <label for="vpin">Verify PIN</label>&nbsp;<sup>*</sup>
+                <input type="password" class="form-control">
+                <span>Make note of your PIN for future use.</span>
+            </div>
+
+        </div>
+
+        <div class="row visible-md">
+
+             <div class="col-md-12">                
+                    Mailing Address                
+            </div>
+
+        </div>
+
+        <div class="row visible-md">
+
+            <div class="col-md-3" id="typeaddress">
+                <label for="residence">Type Address</label>
+                <input type="text" class="form-control" id="residence" name="optradio">
+            </div>
+
+            <div class="col-md-3">
+                <label for="business">&nbsp;</label>
+                <input
+                 type="text" class="form-control" id="business" name="optradio">
+            </div>
+
+            <div class="col-md-3">
+                <label for="country">Country</label>
+                <input type="password" class="form-control">
+            </div>
+
+            <div class="col-md-3">
+                <label for="state">State / Province</label>
+                <input type="password" class="form-control">
+            </div>
+
+        </div>
+
+        <div class="row visible-md">
+
+            <div class="col-md-6">
+                <label for="sa">Street Address</label>
+                <input type="password" class="form-control">
+            </div>    
+
+            <div class="col-md-3 col-lg-offset-6">
+                <label for="city">City / Town</label>
+                <input type="password" class="form-control">
+            </div>
+
+            <div class="col-md-3">
+                <label for="zip">Postal Code</label>
+                <input type="password" class="form-control">
+            </div>
+
+        </div>
+
+        <div class="row visible-md">
+
+             <div class="col-md-4">
+                + Additional Addres Information
+            </div>
+
+        </div>
+
+        <div class="row visible-md">
+
+            <!-- <div class="clearfix visible-xs visible-md visible-lg"></div> -->    
+            <div class="custom-checkbox col-md-9">
+                <input type="checkbox" id="cb11">
+                <label for="cb11">Text about termns and conditions</label>
+            </div>
+
+        </div>
+
+        <div class="row visible-md">
+            <div class="col-md-4 join">JOIN NOW</div>
+        </div><!-- row -->
+
+        <div class="row visible-sm">
+
+            <div class="col-sm-12">               
+                    Account Information               
+            </div>
+        </div>
+
+        <div class="row visible-sm">
+
+            <!--Content of firs block of inputs -->                       
+
+            <div class="col-sm-2" id="title"><div>
+                <label for="tittle">Tittle</label>&nbsp;<sup>*</sup>
+                <input type="email" class="form-control" id="tittle"></div>
+            </div>           
+
+            <div class="col-sm-5" id="fname"><div>
+                <label for="fname">First Name</label>&nbsp;<sup>*</sup>
+                <input type="text" class="form-control" id="fname"></div>
+            </div>
+
+            <div class="col-sm-5" id="lname"><div>
+                <label for="lname">Last Name</label>&nbsp;<sup>*</sup>
+                <input type="text" class="form-control" id="lname"></div>
+            </div>
+
+        </div>
+
+        <div class="row visible-sm">
+
+            <div class="col-sm-6">
+                <label for="email">Email Address</label>&nbsp;<sup>*</sup>
+                <input type="password" class="form-control">
+            </div>            
+
+            <div class="col-sm-6">
+                <label for="vemail">Verify Email Address</label>&nbsp;<sup>*</sup>
+                <input type="password" class="form-control">
+            </div>
+
+        </div>
+
+        <div class="row visible-sm">
+
+            <div  class="col-sm-6">
+                Why whe collect your email Address?
+            </div>
+
+        </div>
+
+        <div class="row visible-sm">
+
+             <div class="col-sm-3">
+                <label for="pin">Create PIN</label>&nbsp;<sup>*</sup>
+                <input type="password" class="form-control">
+            </div>
+
+            <div class="col-sm-3">
+                <label for="vpin">Verify PIN</label>&nbsp;<sup>*</sup>
+                <input type="password" class="form-control">
+                <span>Make note of your PIN for future use.</span>
+            </div>
+
+        </div>
+
+        <div class="row visible-sm">
+
+             <div class="col-sm-12">                
+                    Mailing Address                
+            </div>
+
+        </div>
+
+        <div class="row visible-sm">
+
+            <div class="col-sm-3" id="typeaddress">
+                <label for="residence">Type Address</label>
+                <input type="text" class="form-control" id="residence" name="optradio">
+            </div>
+
+            <div class="col-sm-3">
+                <label for="business">&nbsp;</label>
+                <input
+                 type="text" class="form-control" id="business" name="optradio">
+            </div>
+
+            <div class="col-sm-3">
+                <label for="country">Country</label>
+                <input type="password" class="form-control">
+            </div>
+
+            <div class="col-sm-3">
+                <label for="state">State / Province</label>
+                <input type="password" class="form-control">
+            </div>
+
+        </div>
+
+        <div class="row visible-sm">
+            <div class="col-sm-6">
+                <label for="sa">Street Address</label>
+                <input type="password" class="form-control">
+            </div>    
+
+            <div class="col-sm-3">
+                <label for="city">City / Town</label>
+                <input type="password" class="form-control">
+            </div>
+
+            <div class="col-sm-3">
+                <label for="zip">Postal Code</label>
+                <input type="password" class="form-control">
+            </div>
+        </div>
+
+        <div class="row visible-sm">
+             <div class="col-sm-5">
+                + Additional Addres Information
+            </div>
+        </div>
+
+        <div class="row visible-sm">
+            <div class="custom-checkbox col-sm-11">
+                <input type="checkbox" id="cb11">
+                <label for="cb11">Text about termns and conditions</label>
+            </div>
+        </div>
+
+        <div class="row visible-sm">
+            <div class="col-sm-6 join">JOIN NOW</div>
+        </div><!-- row -->
+
+        <div class="row visible-xs">
+
+            <div class="col-xs-12">
+                    Account Information
+            </div>
+        </div>
+        <div class="row visible-xs">
+
+            <!--Content of firs block of inputs -->
+            <div class="col-xs-6" id="title"><div>
+                <label for="tittle">Tittle</label>&nbsp;<sup>*</sup>
+                <input type="email" class="form-control" id="tittle"></div>
+            </div>
+        </div>
+        <div class="row visible-xs">
+
+            <div class="col-xs-6" id="fname"><div>
+                <label for="fname">First Name</label>&nbsp;<sup>*</sup>
+                <input type="text" class="form-control" id="fname"></div>
+            </div>
+
+            <div class="col-xs-6" id="lname"><div>
+                <label for="lname">Last Name</label>&nbsp;<sup>*</sup>
+                <input type="text" class="form-control" id="lname"></div>
+            </div>
+
+        </div>
+        <div class="row visible-xs">
+
+            <div class="col-xs-12">
+                <label for="email">Email Address</label>&nbsp;<sup>*</sup>
+                <input type="password" class="form-control">
+            </div>
+        </div>
+        <div class="row visible-xs">
+
+            <div  class="col-xs-12">
+                Why whe collect your email Address?
+            </div>
+
+        </div>
+        <div class="row visible-xs">
+
+            <div class="col-xs-12">
+                <label for="vemail">Verify Email Address</label>&nbsp;<sup>*</sup>
+                <input type="password" class="form-control">
+            </div>
+
+        </div>
+        <div class="row visible-xs">
+
+             <div class="col-xs-6">
+                <label for="pin">Create PIN</label>&nbsp;<sup>*</sup>
+                <input type="password" class="form-control">
+            </div>
+
+            <div class="col-xs-6">
+                <label for="vpin">Verify PIN</label>&nbsp;<sup>*</sup>
+                <input type="password" class="form-control">
+                <span>Make note of your PIN for future use.</span>
+            </div>
+
+        </div>
+        <div class="row visible-xs">
+
+             <div class="col-xs-12">                
+                    Mailing Address                
+            </div>
+
+        </div>
+        <div class="row visible-xs">
+
+            <div class="col-xs-6" id="typeaddress">
+                <label for="residence">Type Address</label>
+                <input type="text" class="form-control" id="residence" name="optradio">
+            </div>
+
+            <div class="col-xs-6">
+                <label for="business">&nbsp;</label>
+                <input
+                 type="text" class="form-control" id="business" name="optradio">
+            </div>
+
+        </div>
+        <div class="row visible-xs">
+
+            <div class="col-xs-12">
+                <label for="sa">Street Address</label>
+                <input type="password" class="form-control">
+            </div>
+
+        </div>
+        <div class="row visible-xs">
+
+            <div class="col-xs-12">
+                + Additional Addres Information
+            </div>
+
+        </div>
+        <div class="row visible-xs">
+
+
+             <div class="col-xs-6">
+                <label for="country">Country</label>
+                <input type="password" class="form-control">
+            </div>
+
+            <div class="col-xs-6">
+                <label for="state">State / Province</label>
+                <input type="password" class="form-control">
+            </div>
+
+        </div>
+        <div class="row visible-xs">
+               
+
+            <div class="col-xs-6">
+                <label for="city">City / Town</label>
+                <input type="password" class="form-control">
+            </div>
+
+            <div class="col-xs-6">
+                <label for="zip">Postal Code</label>
+                <input type="password" class="form-control">
+            </div>
+
+        </div>
+        <div class="row visible-xs">
+
+            <!-- <div class="clearfix visible-xs visible-md visible-lg"></div> -->    
+            <div class="custom-checkbox col-sm-11">
+                <input type="checkbox" id="cb11">
+                <label for="cb11">Text about termns and conditions</label>
+            </div>
+
+        </div>
+        <div class="row visible-xs">
+            
+            <div class="col-sm-6 join">JOIN NOW</div>
+          
+        </div><!-- row -->
+    </form>
+</div>
+</body>
+
+</html>
