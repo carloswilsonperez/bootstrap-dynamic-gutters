@@ -3,7 +3,7 @@ Plugin for getting dynamic gutters according to COMPS
 
 Modo de Uso:
 
-Simplemente importar el archivo styles/styles.css inmediatamente después del archivo bootstrap.css
+Simplemente importar el archivo styles/comp-sizes.css inmediatamente después del archivo bootstrap.css
 
 Cómo Ocurre:
 
